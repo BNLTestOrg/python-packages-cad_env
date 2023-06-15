@@ -40,7 +40,8 @@ def get_screenlock_user():
 
     with open(filename, "rt") as file:
         content = file.read()
-        if match := SCREENLOCK_RE.match(content):
+        match = SCREENLOCK_RE.match(content)
+        if match:
             username, _ = match.groups()
             _screenlock_last_read = stat.st_mtime
             _screenlock_user = username
